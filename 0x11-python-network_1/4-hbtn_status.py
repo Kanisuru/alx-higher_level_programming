@@ -1,10 +1,16 @@
-#!/usr/bin/python3
-"""fetches https://intranet.hbtn.io/status."""
-import requests
+ #!/usr/bin/python3
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Aug 24 07:02:53 2020
+@author: Robinson Montes
+"""
+from requests import get
 
 
 if __name__ == "__main__":
-    r = requests.get("https://intranet.hbtn.io/status")
-    print("Body response:")
-    print("\t- type: {}".format(type(r.text)))
-    print("\t- content: {}".format(r.text))
+    url = 'https://intranet.hbtn.io/status'
+    response = get(url)
+    bytes_content = response.text
+    string = 'Body response:\n\t- type: {}\n\t- content: {}'.format(
+             type(bytes_content), bytes_content)
+    print(string)
